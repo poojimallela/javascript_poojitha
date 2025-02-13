@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var person = {
+            myName : "Pooji", // Property
+            age:40                    
+
+        };
+  
+        //MyName=key or property name (left side )
+        //"pooji"=property value or value(right side)
+        // key value is seperated by :
+        // value will be in quotes
+        var student = {
+            name:"Pooji",
+            age:22,
+            mobile:9346847667,
+            student:function (){
+                console.log("Student")
+            }
+        };
+
+
+        student.email = "pooji@gmail.com" // Adding a Property with . notation 
+        student["city"] = "Chittoor" // [] notation
+        student.address = {
+            street:"SSS",
+            area:"piler",
+            pin:517214
+        }
+        student.subjects=["HTML","CSS","JS","ReactJS"]
+
+        console.log(student)
+    </script>
+</body>
+</html>
