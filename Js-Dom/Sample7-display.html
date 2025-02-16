@@ -8,18 +8,17 @@
 </head>
 
 <body>
-    <h2>Survey Employe</h2>
+    <h2>Employee Details</h2>
+
     <table border="1">
         <thead>
             <tr>
-                <th>fname</th>
-                <th>lname</th>
-                <th>email</th>
-                <th>age</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Age</th>
                 <th>city</th>
-                <th>job</th>
-                <th>address</th>
-
+                <th>Job</th>
             </tr>
         </thead>
         <tbody>
@@ -29,106 +28,65 @@
     <script>
         const people = [
             {
-                fname: "Pooji",
-                lname: "mallela",
-                email: "poojimallela@gmail.com",
+                fname: "pooji",
+                lname: "reddy",
+                email: "pooji@gmail.com",
                 age: 22,
-                city: "Banglore",
-                job: "Software Engineer",
-                address: {
-                    street: "123 Main St",
-                    city: "Banglore",
-                    zip: "517214"
-                }
+                city: "Hyderabad",
+                job: "Software Engineer"
             },
             {
-                fname: "Charvie",
-                lname: "Kuppam",
-                email: "charvie@gmail.com",
+                fname: "cherry",
+                lname: "reddy",
+                email: "cherry@gmail.com",
                 age: 21,
-                city: "Hyderabad",
-                job: "Product Manager",
-                address: {
-                    street: "Maruthinagar",
-                    city: "Hyderabad",
-                    zip: "10001"
-                }
+                city: "Banglore",
+                job: "Product Manager"
             },
             {
                 fname: "Dhanush",
-                lname: "Mallela",
-                email: "dhanushreddy@gamil.com",
-                age: 22,
-                city: "Chennai",
-                job: "Designer",
-                address: {
-                    street: "Lbs load",
-                    city: "Chennai",
-                    zip: "60001"
-                }
+                lname: "Reddy",
+                email: "dhanu@gmail.com",
+                age: 25,
+                city: "Pune",
+                job: "Designer"
             },
             {
                 fname: "Bhavani",
                 lname: "Kuraparthi",
                 email: "bhavani@gmail.com",
-                age: 23,
-                city: "Pune",
-                job: "Developer",
-                address: {
-                    street: "101 Maple St",
-                    city: "chennai",
-                    zip: "94101"
-                }
+                age: 28,
+                city: "Chennai",
+                job: "Developer"
             },
             {
                 fname: "Radhika",
-                lname: "Patel",
-                email: "radhika@gmail.com",
+                lname: "Otturi",
+                email: "radhik@gmail.com",
                 age: 25,
-                city: "Mumabi",
-                job: "Data Scientist",
-                address: {
-                    street: "202 Birch St",
-                    city: "Mumbai",
-                    zip: "73301"
-                }
+                city: "Austin",
+                job: "Data Scientist"
             },
             {
-                fname: "Thanuja",
-                lname: "Mejari",
-                email: "thanuja@gmail.com",
-                age: 22,
-                city: "Singapur",
-                job: "Marketing Specialist",
-                address: {
-                    street: "303 Cedar St",
-                    city: "singapur",
-                    zip: "98001"
-                }
+                fname: "Bhavya",
+                lname: "Davis",
+                email: "bhavya@gmail.com",
+                age: 25,
+                city: "Mumbai",
+                job: "Marketing Specialist"
             }
+            
         ];
         for (let i = 0; i < people.length; i++) {
-            let myTr = document.createElement('tr');
-            for (a in people[i]) {
-                if (typeof people[i][a] == "object") {
-                    let myTd = document.createElement('td');
-                    var address = "";
-                    for(abc in people[i][a]){
-                        address=address+"<br/>"+people[i][a][abc]
-                    }
-                    myTd.innerHTML = address;
-                    myTr.appendChild(myTd);
-                } else {
-                    let myTd = document.createElement('td');
-                    myTd.innerHTML = people[i][a];
-                    myTr.appendChild(myTd);
-                }
-
+            let myTr = document.createElement('tr');  
+            for ( a in people[i]) {  
+                let myTd = document.createElement('td');
+                myTd.innerHTML = people[i][a];
+                myTr.appendChild(myTd);  
             }
-            document.querySelector("tbody").appendChild(myTr);
+            document.querySelector("tbody").appendChild(myTr);  
         }
-        console.log(people)
-
+    
     </script>
 </body>
 
