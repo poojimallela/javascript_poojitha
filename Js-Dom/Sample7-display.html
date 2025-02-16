@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Survey Employe</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>fname</th>
+                <th>lname</th>
+                <th>email</th>
+                <th>age</th>
+                <th>city</th>
+                <th>job</th>
+                <th>address</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const people = [
+            {
+                fname: "Pooji",
+                lname: "mallela",
+                email: "poojimallela@gmail.com",
+                age: 22,
+                city: "Banglore",
+                job: "Software Engineer",
+                address: {
+                    street: "123 Main St",
+                    city: "Banglore",
+                    zip: "517214"
+                }
+            },
+            {
+                fname: "Charvie",
+                lname: "Kuppam",
+                email: "charvie@gmail.com",
+                age: 21,
+                city: "Hyderabad",
+                job: "Product Manager",
+                address: {
+                    street: "Maruthinagar",
+                    city: "Hyderabad",
+                    zip: "10001"
+                }
+            },
+            {
+                fname: "Dhanush",
+                lname: "Mallela",
+                email: "dhanushreddy@gamil.com",
+                age: 22,
+                city: "Chennai",
+                job: "Designer",
+                address: {
+                    street: "Lbs load",
+                    city: "Chennai",
+                    zip: "60001"
+                }
+            },
+            {
+                fname: "Bhavani",
+                lname: "Kuraparthi",
+                email: "bhavani@gmail.com",
+                age: 23,
+                city: "Pune",
+                job: "Developer",
+                address: {
+                    street: "101 Maple St",
+                    city: "chennai",
+                    zip: "94101"
+                }
+            },
+            {
+                fname: "Radhika",
+                lname: "Patel",
+                email: "radhika@gmail.com",
+                age: 25,
+                city: "Mumabi",
+                job: "Data Scientist",
+                address: {
+                    street: "202 Birch St",
+                    city: "Mumbai",
+                    zip: "73301"
+                }
+            },
+            {
+                fname: "Thanuja",
+                lname: "Mejari",
+                email: "thanuja@gmail.com",
+                age: 22,
+                city: "Singapur",
+                job: "Marketing Specialist",
+                address: {
+                    street: "303 Cedar St",
+                    city: "singapur",
+                    zip: "98001"
+                }
+            }
+        ];
+        for (let i = 0; i < people.length; i++) {
+            let myTr = document.createElement('tr');
+            for (a in people[i]) {
+                if (typeof people[i][a] == "object") {
+                    let myTd = document.createElement('td');
+                    var address = "";
+                    for(abc in people[i][a]){
+                        address=address+"<br/>"+people[i][a][abc]
+                    }
+                    myTd.innerHTML = address;
+                    myTr.appendChild(myTd);
+                } else {
+                    let myTd = document.createElement('td');
+                    myTd.innerHTML = people[i][a];
+                    myTr.appendChild(myTd);
+                }
+
+            }
+            document.querySelector("tbody").appendChild(myTr);
+        }
+        console.log(people)
+
+    </script>
+</body>
+
+</html>
