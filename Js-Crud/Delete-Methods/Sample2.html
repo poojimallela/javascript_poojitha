@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Approach-2
+        var students=["Pooji","Dhanu","Charvie","Bhavya","Yamuna"]
+        var filteredarray=students.filter(function (val){
+            return val!=="Charvie"
+        })
+        document.write(students+"<br/>")
+        document.write(filteredarray)
+        
+        // by using value or index we can delete the value
+        // var filteredarray=students.filter(function (val,index){
+        //     return index!==2;
+        // })
+        // document.write(filteredarray)
+    </script>
+</body>
+</html>

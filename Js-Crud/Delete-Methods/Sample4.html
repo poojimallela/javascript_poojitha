@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //By using filter we can delete 
+        var Students = [
+            { fname: "Pooji" },
+            { fname: "Dhanu" },
+            { fname: "Cherry" },
+            { fname: "Bhavya" },
+            { fname: "Yamuna" },
+            { fname: "Sree" },
+            { fname: "Charvie" },
+
+        ]
+    var filteredarray=Students.filter(function(Student){
+          return Student.fname!=="Sree"
+    })
+    console.log(filteredarray)
+    </script>
+</body>
+
+</html>
