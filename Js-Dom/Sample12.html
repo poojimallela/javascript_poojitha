@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Rating</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        const products = [
+            {
+                id: 1,
+                title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                price: 109.95,
+                description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve.",
+                category: "men's clothing",
+                rating: 3.9,
+                image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+            },
+            {
+                id: 2,
+                title: "Mens Casual Premium Slim Fit T-Shirts ",
+                price: 22.3,
+                description: "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric.",
+                category: "men's clothing",
+                rating: 4.1,
+                image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+            },
+            // Add more products as needed...
+        ];
+
+        // Loop through products and create table rows
+        for (let i = 0; i < products.length; i++) {
+            let myTr = document.createElement('tr');
+            for (let a in products[i]) {
+                let myTd = document.createElement('td');
+                // Check if the property is 'image' and display it as an <img> tag
+                if (a === 'image') {
+                    let imgElement = document.createElement('img');
+                    imgElement.src = products[i][a];
+                    imgElement.alt = 'Product Image';
+                    imgElement.style.width = '100px'; // Adjust image size as needed
+                    myTd.appendChild(imgElement);
+                } else {
+                    myTd.innerHTML = products[i][a];
+                }
+                myTr.appendChild(myTd);
+            }
+            document.querySelector("tbody").appendChild(myTr);
+        }
+    </script>
+</body>
+
+</html>
