@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Student Details</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Rollnumber</th>
+                <th>phonenumber</th>
+                <th>collegename</th>
+                <th>departmnet</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const people = [
+            {
+                fname: "pooji",
+                lname: "mallela",
+                rollnumber: 21850313,
+                phonenumber: 856544234567,
+                collegename: "MJRCET",
+                department: "Mechanical"
+            },
+            {
+                fname: "Charvie",
+                lname: "kuppam",
+                rollnumber: 21850314,
+                phonenumber: 9346754378,
+                collegename: "MJRCET",
+                department: "civil"
+            },
+            {
+                fname: "Sree",
+                lname: "cheepati",
+                rollnumber: 21850315,
+                phonenumber: 9010975337,
+                collegename: "VEMUIT",
+                department: "mechanical"
+            },
+            {
+                fname: "dhanush",
+                lname: "reddy",
+                rollnumber: 21850316,
+                phonenumber: 9666555433,
+                collegename: "SVCET",
+                department: "EEE"
+            },
+            {
+                fname: "Bhavani",
+                lname: "kuraparthi",
+                rollnumber: 21850317,
+                phonenumber: 8653279975,
+                collegename: "MJRCET",
+                department: "Cse"
+            }
+            
+        ];
+        for (let i = 0; i < people.length; i++) {
+            let myTr = document.createElement('tr');  
+            for ( a in people[i]) {  
+                let myTd = document.createElement('td');
+                myTd.innerHTML = people[i][a];
+                myTr.appendChild(myTd);  
+            }
+            document.querySelector("tbody").appendChild(myTr);  
+        }
+    
+    
+    </script>
+</body>
+
+</html>
