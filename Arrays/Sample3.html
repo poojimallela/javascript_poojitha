@@ -11,13 +11,13 @@
     <script>
         var students = ["Murali", "Pooji", "Bhavya", "Pooji", "Ramu", "Ravi", "Ani", "Pooji"];
 
-        var result = students.some(function (val){
-            return val.length === 3 ;
-        })
-
-        // var result = students.every(function (val){
+        // var result = students.some(function (val){
         //     return val.length === 3 ;
         // })
+
+        var result = students.every(function (val){
+            return val.length === 3 ;
+        })
 
         console.log(result)
     </script>
