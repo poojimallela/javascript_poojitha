@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <form>
+        <label for="">First Name </label>
+        <input type="text" name="" id="fname"> <br>
+        <label for="">Last Name </label>
+        <input type="text" name="" id="lname"> <br>
+        <label for="">Email </label>
+        <input type="text" name="" id="email"> <br>
+        <label for="">company </label>
+        <input type="text" name="" id="company"> <br>
+        <label for="">physical address </label>
+        <input type="text" name="" id="address"> <br>
+        <label for="">dateofbirth </label>
+        <input type="date" name="" id="DOB"> <br>
+
+        <button type="button" onclick="createUser()">Create User</button>
+        <button type="button" onclick="updateUser()">Update User</button>
+    </form>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name </th>
+                <th>Last Name </th>
+                <th>Email</th>
+                <th>Company</th>
+                <th>address</th>
+                <th>date of birth</th>
+                <th>delete</th>
+                <th>edit</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+
+
+        var users = [
+            // {
+            //     fname:"pooji",
+            //     lname:"reddy",
+            //     email:"mallelapoojitha@gmail.com",
+            //     company:"vmr",
+            //     address:"piler",
+            //     dateofbirth:"23-01-2003"
+            
+                
+
+            // },
+            // {
+            //     fname:"pooji",
+            //     lnaem:"reddy",
+            //     email:"mallelapoojitha@gmail.com",
+            //     company:"vmr",
+            //     address:"piler",
+            //     dateofbirth:"23-01-2003"
+                
+
+            // },
+            
+        ];
+
+        function createUser() {
+
+
+            var user = {
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value,
+                email: document.getElementById("email").value,
+                company: document.getElementById("company").value,
+                address: document.getElementById("address").value,
+                dateofbirth: document.getElementById("DOB").value
+
+            }
+
+            users.push(user)
+            resetForm();
+            readUsers()
+        };
+        function readUsers() {
+            document.querySelector("tbody").innerHTML = "";
+            for (i = 0; i < users.length; i++) {
+                var myTr = document.createElement("tr")
+                for (a in users[i]) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = users[i][a]
+                    myTr.appendChild(myTd)
+                }
+                var editTd = document.createElement("td");
+                var deleteTd = document.createElement("td");
+
+                var editBtn = document.createElement("button");
+                editBtn.setAttribute("onClick", "editUser(" + i + ")");
+                editBtn.innerHTML = "EDIT"
+                var deleteBtn = document.createElement("button");
+                deleteBtn.setAttribute("onClick", "deleteuser(" + i + ")")
+                deleteBtn.innerHTML = "DELETE"
+                editTd.appendChild(editBtn)
+                deleteTd.appendChild(deleteBtn)
+                myTr.appendChild(editTd)
+                myTr.appendChild(deleteTd)
+
+                document.querySelector("tbody").appendChild(myTr)
+            }
+        };
+        var gIndex;
+        function editUser(i) {
+            gIndex = i;
+            // var userToBeEdit = users[i];
+            document.getElementById("fname").value = users[i].fname;
+             document.getElementById("lname").value=users[i].lname;
+                document.getElementById("email").value=users[i].email;
+                documnet.getElementById("company").value=users[i].company;
+                document.getElementById("address").value=users[i].address;
+                document.getElementById("DOB").value=users[i].DOB
+
+
+            console.log(i)
+        }
+        function updateUser() {
+
+            var user = {
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value,
+                email: document.getElementById("email").value,
+                company: documnet.getElementById("company").value,
+                address: document.getElementById("address").value,
+                dateofbirth: document.getElementById("DOB").value
+
+            }
+
+            users[gIndex] = user;
+            resetForm();
+            readUsers();
+        };
+        function deleteuser(i) {
+            users.splice(i, 1);
+            readUsers()
+        };
+
+        function resetForm() {
+            document.querySelector("form").reset()
+        }
+    </script>
+</body>
+
+</html>
