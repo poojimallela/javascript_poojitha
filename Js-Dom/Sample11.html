@@ -37,6 +37,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         
 
             },
@@ -47,6 +48,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -56,6 +58,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -65,6 +68,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -74,6 +78,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -83,6 +88,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -92,6 +98,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -101,6 +108,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -110,6 +118,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -128,6 +137,7 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             },
             {
@@ -137,24 +147,49 @@
                 description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, ",
                 category: "men's clothing",
                 rating: 3.9,
+                  image:  "https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
             }
 
             
         ];
 
-        document.write(products.length)
-        for (let i = 0; i < products.length; i++) {
-            let myTr = document.createElement('tr');
-            for (a in products[i]) {
-                let myTd = document.createElement('td');
-                myTd.innerHTML = products[i][a];
-                myTr.appendChild(myTd);
-
+    products.forEach(function (pooji)
+     {
+        var mytr = document.createElement("tr")
+        for (a in pooji)
+        {
+            var td = document.createElement("td");
+            if (a === "image")
+            {
+              var myimgtd = document.createElement("td")
+              var myimg = document.createElement("img")
+              myimg.src = pooji.image;
+              
+              myimg.setAttribute("width", "180px")
+              myimgtd.appendChild(myimg)
+              mytr.appendChild(myimgtd)
             }
-            document.querySelector("tbody").appendChild(myTr);
-
+            else {
+              td.textContent = pooji[a];
+              mytr.appendChild(td)
+            }
+            document.querySelector("tbody").appendChild(mytr)
         }
+     })
+
+        // document.write(products.length)
+        // for (let i = 0; i < products.length; i++) {
+        //     let myTr = document.createElement('tr');
+        //     for (a in products[i]) {
+        //         let myTd = document.createElement('td');
+        //         myTd.innerHTML = products[i][a];
+        //         myTr.appendChild(myTd);
+
+        //     }
+        //     document.querySelector("tbody").appendChild(myTr);
+
+        // }
 
 
 
