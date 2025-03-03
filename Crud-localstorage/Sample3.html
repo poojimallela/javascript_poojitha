@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="">Id</label>
+        <input type="text" name="" id="Id"><br>
+        <label for="">fname</label>
+        <input type="text" name="" id="fname"><br>
+        <label for="">lname</label>
+        <input type="text" name="" id="lname"><br>
+        <label for="">Age</label>
+        <input type="text" name="" id="age"><br>
+        <label for="">Address</label>
+        <input type="text" name="" id="address"><br>
+        <button type="button" onclick="createUser()">Add User</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>fname</th>
+                <th>lname</th>
+                <th>age</th>
+                <th>address</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <script>
+        
+        var allusers = JSON.parse(localStorage.getItem("allusers"));
+            console.log(allusers);
+
+        // CREATE
+        function createUser() {
+            var user = {
+                id: document.getElementById("Id").value,
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value,
+                age: document.getElementById("age").value,
+                address: document.getElementById("address").value
+            }
+
+            // Add new user to the array
+            allusers.push(user);
+            localStorage.setItem("allusers", JSON.stringify(allusers));
+            displayUsers() ;
+
+            // Save to localStorage
+            localStorage.setItem("allusers", JSON.stringify(allusers));
+
+            // Display updated user list
+            displayUsers();
+        }
+
+        // READ
+        function displayUsers() {
+            document.querySelector("tbody").innerHTML = "";
+            allusers.forEach(function (user, index) {
+                var myTr = document.createElement("tr");
+
+                for (let a in user) {
+                    if (user.hasOwnProperty(a)) {
+                        var myTd = document.createElement("td");
+                        myTd.innerHTML = user[a];
+                        myTr.appendChild(myTd);
+                    }
+                }
+
+                var editTd = document.createElement("td");
+                var deleteTd = document.createElement("td");
+
+                var editbtn = document.createElement("button");
+                editbtn.innerHTML = "Edit"
+                editbtn.setAttribute ("onclick","editduser("+index+")")
+
+                var deletebtn = document.createElement("button");
+                deletebtn.setAttribute("onclick", "deleteUser(" + index + ")")
+                deletebtn.innerHTML = "Delete";
+                editTd.appendChild(editbtn);
+                deleteTd.appendChild(deletebtn);
+
+                myTr.appendChild(editTd);
+                myTr.appendChild(deleteTd);
+                document.querySelector("tbody").appendChild(myTr);
+            });
+        }
+
+        // UPDATE
+          var gIndex;
+        function editUser(i){
+            gIndex=i;
+             document.getElementById("Id").value=allusers[i].Id
+             document.getElementById("fname").value=allusers[i].fname
+            document.getElementById("lname").value=allusers[i].lname
+             document.getElementById("age").value=allusers[i].age
+         document.getElementById("address").value=allusers[i].address
+
+        }
+        // DELETE
+        function deleteUser(index) {
+            allusers.splice(index, 1);
+            localStorage.setItem("allusers", JSON.stringify(allusers));
+            displayUsers();
+        }
+
+        
+        displayUsers();
+    </script>
+</body>
+
+</html>
