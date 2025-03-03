@@ -132,4 +132,7 @@ body {
   #updateBtn{
     display: none;
   }
+  #updateuser{
+    display: none;
+  }
   
